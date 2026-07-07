@@ -1,0 +1,20 @@
+{
+  "_comment": "Шаблон allowlist для .claude/settings.json проекта. СУЗИТЬ под проект и отдать ЧЕЛОВЕКУ на применение (агент не имеет права выдавать права себе). Не включать интерпретаторы со звёздочкой (python3 *, node *) и деструктивное (rm *, pkill *) — на них пусть спрашивает.",
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild *)",
+      "Bash(xcrun simctl *)",
+      "Bash(xcrun xcresulttool *)",
+      "Bash(xcrun devicectl *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(sips *)",
+      "Bash(plutil -p *)",
+      "Bash(codesign -d *)",
+      "Bash(open -a Simulator)",
+      "Bash(caffeinate *)"
+    ]
+  }
+}
