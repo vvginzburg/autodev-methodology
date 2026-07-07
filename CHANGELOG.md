@@ -1,4 +1,4 @@
-# CHANGELOG методики autodev
+# CHANGELOG методики AutoDev
 
 ## v2.0 — 2026-07-07 · источник: проект DocVault (~/DW/DocVault)
 

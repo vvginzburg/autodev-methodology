@@ -3,7 +3,7 @@ name: autodev
 description: Методика автономной агентной разработки Вадима — полный цикл от проектирования до приёмки. Use when starting a new development project ("новый проект по методике", "начинаем разработку по autodev"), resuming an autodev project, or running its acceptance/retro phases. Не для разовых мелких задач.
 ---
 
-# Autodev — методика автономной разработки
+# AutoDev — методика автономной агентной разработки
 
 Версия 2.0 · выработана на проекте DocVault (2026-07-06/07) · развивается: см. CHANGELOG.md
 
