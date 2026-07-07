@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoDev — панель применения методики</title>
+<style>
+  :root { --bg:#0f1115; --card:#1a1d24; --text:#e8eaed; --muted:#9aa0a6; --accent:#5e8bff; --good:#34c759; }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f6f7f9; --card:#ffffff; --text:#1c1e21; --muted:#5f6368; --accent:#3b64d8; --good:#1e8e3e; }
+  }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--text); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:32px 16px; }
+  .wrap { max-width:1000px; margin:0 auto; }
+  h1 { font-size:1.7rem; margin-bottom:4px; }
+  .sub { color:var(--muted); margin-bottom:28px; }
+  .sub a { color:var(--accent); text-decoration:none; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-bottom:30px; }
+  .card { background:var(--card); border-radius:14px; padding:18px 20px; box-shadow:0 1px 4px rgba(0,0,0,.15); }
+  .card .v { font-size:1.9rem; font-weight:700; }
+  .card .l { color:var(--muted); font-size:.85rem; margin-top:2px; }
+  h2 { font-size:1.15rem; margin:26px 0 12px; }
+  .tblwrap { overflow-x:auto; background:var(--card); border-radius:14px; box-shadow:0 1px 4px rgba(0,0,0,.15); }
+  table { border-collapse:collapse; width:100%; min-width:900px; font-size:.9rem; }
+  th, td { padding:10px 14px; text-align:left; white-space:nowrap; }
+  th { color:var(--muted); font-weight:600; border-bottom:1px solid rgba(128,128,128,.25); font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; }
+  tr + tr td { border-top:1px solid rgba(128,128,128,.12); }
+  td.num { font-variant-numeric:tabular-nums; }
+  .good { color:var(--good); font-weight:600; }
+  .notes { max-width:280px; white-space:normal; color:var(--muted); font-size:.82rem; }
+  .status { color:var(--muted); padding:40px; text-align:center; }
+  footer { color:var(--muted); font-size:.8rem; margin-top:28px; }
+  footer a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AutoDev — применение методики</h1>
+  <div class="sub">Добровольно отчитанные проекты (фаза 5 «Ретро»).
+    Методика и как отчитаться: <a href="https://github.com/vvginzburg/autodev-methodology">github.com/vvginzburg/autodev-methodology</a></div>
+
+  <div class="cards" id="cards"></div>
+
+  <h2>Проекты</h2>
+  <div class="tblwrap"><table id="tbl">
+    <thead><tr>
+      <th>Проект</th><th>Кто</th><th>Дата</th><th>Тип · стек</th><th>Версия</th>
+      <th>Задач (+BF)</th><th>С 1-го раза</th><th>Багов приёмки /10</th>
+      <th>Вопросов к человеку</th><th>Минут человека</th><th>Ток./задача</th><th>Дней</th><th>Заметки</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="status" id="status">Загружаю метрики…</div>
+
+  <footer>Данные — файлы <a href="https://github.com/vvginzburg/autodev-methodology/tree/main/metrics">metrics/</a>,
+    страница читает их через GitHub API при каждом открытии. Хотите свой проект на панели —
+    пришлите Pull Request с метриками по шаблону.</footer>
+</div>
+<script>
+const API = 'https://api.github.com/repos/vvginzburg/autodev-methodology/contents/metrics';
+const fmt = (n, d=0) => Number(n).toLocaleString('ru-RU', {maximumFractionDigits:d, minimumFractionDigits:d});
+
+async function main() {
+  const status = document.getElementById('status');
+  try {
+    const list = await (await fetch(API)).json();
+    const files = list.filter(f => f.name.endsWith('.json') && !f.name.startsWith('_'));
+    const projects = (await Promise.all(files.map(f => fetch(f.download_url).then(r => r.json()).catch(() => null))))
+      .filter(Boolean).sort((a,b) => (b.date||'').localeCompare(a.date||''));
+    if (!projects.length) { status.textContent = 'Пока нет отчитанных проектов.'; return; }
+    status.style.display = 'none';
+
+    const avg = (k) => projects.reduce((s,p) => s + (+p[k]||0), 0) / projects.length;
+    const totalHuman = (p) => (+p.human_minutes_design||0)+(+p.human_minutes_acceptance||0)+(+p.human_minutes_retro||0);
+    const cards = [
+      [projects.length, 'проектов на методике'],
+      [new Set(projects.map(p=>p.reporter)).size, 'участников'],
+      [fmt(avg('first_pass_accept_rate')*100) + '%', 'задач принято с 1-го раза (ср.)'],
+      [fmt(avg('acceptance_bugs_per_10_tasks'),1), 'багов приёмки на 10 задач (ср.)'],
+      [fmt(projects.reduce((s,p)=>s+totalHuman(p),0)/projects.length/60,1) + ' ч', 'человеческого времени на проект (ср.)'],
+      [fmt(avg('questions_to_human_during_dev'),1), 'вопросов к человеку в разработке (ср.)'],
+    ];
+    document.getElementById('cards').innerHTML =
+      cards.map(([v,l]) => `<div class="card"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+
+    document.querySelector('#tbl tbody').innerHTML = projects.map(p => `<tr>
+      <td><b>${p.project||'—'}</b></td>
+      <td>${p.reporter||'—'}</td>
+      <td class="num">${p.date||'—'}</td>
+      <td>${p.project_type||''} · ${p.stack||''}</td>
+      <td class="num">${p.methodology_version||''}</td>
+      <td class="num">${fmt(p.tasks_planned)} (+${fmt(p.bugfix_tasks)})</td>
+      <td class="num ${p.first_pass_accept_rate>=0.85?'good':''}">${fmt((p.first_pass_accept_rate||0)*100)}%</td>
+      <td class="num">${fmt(p.acceptance_bugs_per_10_tasks,1)}</td>
+      <td class="num ${+p.questions_to_human_during_dev===0?'good':''}">${fmt(p.questions_to_human_during_dev)}</td>
+      <td class="num">${fmt(totalHuman(p))}</td>
+      <td class="num">${fmt(p.tokens_per_task_avg_k)}k</td>
+      <td class="num">${fmt(p.duration_days)}</td>
+      <td class="notes">${(p.notes||'').replace(/</g,'&lt;')}</td>
+    </tr>`).join('');
+  } catch (e) {
+    status.textContent = 'Не удалось загрузить метрики: ' + e.message;
+  }
+}
+main();
+</script>
+</body>
+</html>

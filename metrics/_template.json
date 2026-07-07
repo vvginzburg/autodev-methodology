@@ -1,0 +1,19 @@
+{
+  "project": "короткий-псевдоним-проекта",
+  "date": "YYYY-MM-DD",
+  "reporter": "github-ник",
+  "project_type": "mobile app | web app | cli | library | ...",
+  "stack": "основные технологии",
+  "methodology_version": "2.1",
+  "tasks_planned": 0,
+  "bugfix_tasks": 0,
+  "first_pass_accept_rate": 0.0,
+  "acceptance_bugs_per_10_tasks": 0.0,
+  "questions_to_human_during_dev": 0,
+  "human_minutes_design": 0,
+  "human_minutes_acceptance": 0,
+  "human_minutes_retro": 0,
+  "tokens_per_task_avg_k": 0,
+  "duration_days": 0,
+  "notes": ""
+}
