@@ -5,7 +5,10 @@ description: Методика автономной агентной разраб
 
 # AutoDev — методика автономной агентной разработки
 
-Версия 2.0 · выработана на проекте DocVault (2026-07-06/07) · развивается: см. CHANGELOG.md
+Версия 2.1 · выработана на проекте DocVault (2026-07-06/07) · развивается: см. CHANGELOG.md
+
+**Человеку**: полный рассказ, как методика работает, — [README.md](README.md).
+Этот файл — токен-экономный вход для AI.
 
 ## Резюме для человека (1 минута)
 
@@ -24,6 +27,7 @@ description: Методика автономной агентной разраб
 
 | Фаза | Файл | Кто | Итог фазы |
 |---|---|---|---|
+| 0. Окружение | [phases/00-environment.md](phases/00-environment.md) | AI (человек — только интерактивные установки) | все зависимости зелёные |
 | 1. Проектирование | [phases/01-design.md](phases/01-design.md) | человек + AI, диалог | RRR.md, PLAN.md, CLAUDE.md проекта |
 | 2. Настройка запуска | [phases/02-launch-setup.md](phases/02-launch-setup.md) | AI, человек подтверждает права | **смок-тест цикла зелёный** |
 | 3. Разработка | [phases/03-development.md](phases/03-development.md) | AI автономно | все задачи PLAN приняты, REPORT.md |
@@ -78,8 +82,17 @@ description: Методика автономной агентной разраб
 - [reference/metrics.md](reference/metrics.md) — метрики эффективности и базовая линия DocVault
 - [reference/case-docvault.md](reference/case-docvault.md) — разобранный кейс-первоисточник
 
+## Зависимости (проверяет фаза 0)
+
+Обязательно: Claude Code; git; плагин Superpowers (используются скилы
+brainstorming, writing-plans, subagent-driven-development,
+test-driven-development, verification-before-completion); gh авторизованный.
+По типу проекта: см. phases/00-environment.md. На чистой машине НЕ предполагать
+ничего — фаза 0 проверяет и ставит.
+
 ## Быстрый старт нового проекта
 
+0. Прогони фазу 0 (phases/00-environment.md) — окружение и зависимости.
 1. Прочитай phases/01-design.md → сократический диалог с человеком → RRR.md + PLAN.md
    + CLAUDE.md из шаблонов.
 2. Фаза 2 обязательна и заканчивается СМОК-ТЕСТОМ: пустая задача проходит полный цикл
