@@ -131,7 +131,7 @@ iPhone/Mac с синхронизацией) это дало: 16 задач + 4 �
 ## Установка на чистый компьютер
 
 ```
-git clone <адрес-этого-репозитория> ~/.claude/skills/autodev
+git clone https://github.com/vvginzburg/autodev-methodology.git ~/.claude/skills/autodev
 ```
 — всё; скил станет виден каждой сессии Claude Code. Недостающие зависимости
 поставит фаза 0 первого же проекта.
