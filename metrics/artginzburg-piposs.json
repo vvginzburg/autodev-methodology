@@ -1,0 +1,19 @@
+{
+  "project": "piposs",
+  "date": "2026-07-30",
+  "reporter": "artginzburg",
+  "project_type": "macOS app + Safari web extension",
+  "stack": "Swift/SwiftUI, TypeScript (MV3), esbuild, Vitest+jsdom, Playwright, XcodeGen",
+  "methodology_version": "2.1",
+  "tasks_planned": 24,
+  "bugfix_tasks": 19,
+  "first_pass_accept_rate": 0.72,
+  "acceptance_bugs_per_10_tasks": 1.4,
+  "questions_to_human_during_dev": 1,
+  "human_minutes_design": 120,
+  "human_minutes_acceptance": 150,
+  "human_minutes_retro": 30,
+  "tokens_per_task_avg_k": 1268,
+  "duration_days": 5,
+  "notes": "Не greenfield: переписывание отгруженного OSS-расширения. Больше половины дефектов — вне репозитория (180 копий в LaunchServices от сборок самих агентов, префикс в теге релиза, нехватка инструмента в CI): тесты такого не видят, шесть нашёл человек. Сильнейший приём — мутационное тестирование."
+}
