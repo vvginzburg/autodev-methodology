@@ -1,7 +1,7 @@
 # Кейс-первоисточник: DocVault (2026-07-06/07)
 
 Проект, на котором выработана v2.0. Репозиторий: ~/DW/DocVault
-(github.com/vvginzburg/DocVault, приватный) — там живые RRR/PLAN/DECISIONS/
+(github.com/vvginzburg/DocVault, приватный) — там живые SPECIFICATION/PLAN/DECISIONS/
 REPORT, 28 коммитов, DECISIONS с 20+ секциями решений.
 
 ## Цифры
