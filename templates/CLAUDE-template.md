@@ -24,6 +24,8 @@ DECISIONS.md.
 - Техника длинных команд и грабли окружения:
   ~/.claude/skills/autodev/reference/pitfalls.md — В КАЖДЫЙ бриф сабагенту.
 - Файлы процесса: только PLAN/DECISIONS/REPORT + git.
+- Документ для человека (SPECIFICATION, PLAN, DECISIONS, ARCHITECTURE, REPORT)
+  не готов, пока не вычитан скилом elements-of-style:writing-clearly-and-concisely.
 
 ## Окружение этой машины (принять как факт)
 <пути тулчейна, версии, симуляторы, авторизованные CLI, чего НЕТ (brew/sudo);
