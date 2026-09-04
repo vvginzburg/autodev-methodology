@@ -78,7 +78,7 @@ async function main() {
       [fmt(avg('first_pass_accept_rate')*100) + '%', 'задач принято с 1-го раза (ср.)'],
       [fmt(avg('acceptance_bugs_per_10_tasks'),1), 'багов приёмки на 10 задач (ср.)'],
       [fmt(projects.reduce((s,p)=>s+totalHuman(p),0)/projects.length/60,1) + ' ч', 'человеческого времени на проект (ср.)'],
-      [fmt(avg('questions_to_human_during_dev'),1), 'вопросов к человеку в разработке (ср.)'],
+      [fmt(avg('technical_questions_to_human'),1), 'технических вопросов в разработке (ср.)'],
     ];
     document.getElementById('cards').innerHTML =
       cards.map(([v,l]) => `<div class="card"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
@@ -92,7 +92,7 @@ async function main() {
       <td class="num">${fmt(p.tasks_planned)} (+${fmt(p.bugfix_tasks)})</td>
       <td class="num ${p.first_pass_accept_rate>=0.85?'good':''}">${fmt((p.first_pass_accept_rate||0)*100)}%</td>
       <td class="num">${fmt(p.acceptance_bugs_per_10_tasks,1)}</td>
-      <td class="num ${+p.questions_to_human_during_dev===0?'good':''}">${fmt(p.questions_to_human_during_dev)}</td>
+      <td class="num ${+p.technical_questions_to_human===0?'good':''}">${fmt(p.technical_questions_to_human)}</td>
       <td class="num">${fmt(totalHuman(p))}</td>
       <td class="num">${fmt(p.tokens_per_task_avg_k)}k</td>
       <td class="num">${fmt(p.duration_days)}</td>
