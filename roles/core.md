@@ -23,8 +23,8 @@ autodev/DECISIONS.md/PLAN.md/ESCALATIONS.md; коммитит и пушит пр
 
 **Бриф задачи обязан содержать**: формулировку с критерием готовности; ссылки
 на разделы SPECIFICATION (не пересказ); релевантные контракты из DECISIONS;
-указатели на reference/pitfalls.md методики, autodev/pitfalls.md проекта
-и autodev/stack.md; правило «НЕ коммитить»; контракт роли (roles/contracts.md)
+указатели на reference/pitfalls.md и reference/bug-patterns.md методики,
+autodev/pitfalls.md проекта и autodev/stack.md; правило «НЕ коммитить»; контракт роли (roles/contracts.md)
 и специфику её отчёта, если она есть; правило принципа 14 — продуктовую
 развилку не решать, останавливать задачу и заканчивать отчёт строкой `## ЖДЁТ`.
 

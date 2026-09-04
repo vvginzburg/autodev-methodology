@@ -5,7 +5,7 @@ description: Методика автономной агентной разраб
 
 # AutoDev — методика автономной агентной разработки
 
-Версия 3.7 · выработана на проекте DocVault (2026-07-06/07) · развивается: см. CHANGELOG.md
+Версия 3.8 · выработана на проекте DocVault (2026-07-06/07) · развивается: см. CHANGELOG.md
 
 **Человеку**: полный рассказ, как методика работает, — [README.md](README.md).
 Этот файл — токен-экономный вход для AI.
@@ -182,6 +182,7 @@ description: Методика автономной агентной разраб
 - [DEFECTS.md](DEFECTS.md) — известные дефекты методики, отложенные по объёму; фаза 5 открывает наравне с вопросами
 - [roles/contracts.md](roles/contracts.md) — контракты ролей: финальные строки отчётов и обязательные поля
 - [reference/pitfalls.md](reference/pitfalls.md) — грабли окружения и техника длинных команд
+- [reference/bug-patterns.md](reference/bug-patterns.md) — типовые ошибки кода и таблица «симптом → куда смотреть»
 - [reference/budget.md](reference/budget.md) — токены, лимиты подписки, модели по ролям
 - [reference/metrics.md](reference/metrics.md) — метрики эффективности и базовая линия DocVault
 - [reference/case-docvault.md](reference/case-docvault.md) — разобранный кейс-первоисточник
@@ -192,7 +193,7 @@ description: Методика автономной агентной разраб
 Обязательно: среда с поддержкой скилов и сабагентов (Claude Code, Codex CLI —
 см. reference/portability.md); git; плагин Superpowers (используются скилы
 brainstorming, writing-plans, subagent-driven-development,
-test-driven-development, verification-before-completion); gh авторизованный;
+test-driven-development, verification-before-completion, systematic-debugging); gh авторизованный;
 context7 (MCP) — критичен, если стек незнаком; плагин elements-of-style —
 каждый документ для человека проходит через него перед сдачей (принцип 13).
 Полезно, не обязательно: episodic-memory (поиск по прошлым сессиям — фаза 1,

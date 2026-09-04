@@ -40,6 +40,8 @@
 - Принятая задача = commit + push. Итерация начинается с прогона тестов.
 - Техника длинных команд и грабли окружения:
   ~/.claude/skills/autodev/reference/pitfalls.md — В КАЖДЫЙ бриф сабагенту.
+  Типовые ошибки кода и таблица «симптом → куда смотреть»:
+  ~/.claude/skills/autodev/reference/bug-patterns.md — туда же.
 - Файлы процесса: только PLAN/DECISIONS/ESCALATIONS/REPORT + git
   (плюс eval.md, codebase.md, ui.md — если активированы соответствующие роли).
 - **Проектом управляет только autodev (принцип 15).** Не инициализировать

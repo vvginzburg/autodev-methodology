@@ -21,7 +21,8 @@
    «подтверди установку Command Line Tools в появившемся окне».
 3. **Скилы Superpowers** — методика на них ссылается. Проверка: доступны
    superpowers:brainstorming, writing-plans, subagent-driven-development,
-   test-driven-development, verification-before-completion. Нет → установить
+   test-driven-development, verification-before-completion,
+   systematic-debugging. Нет → установить
    (Claude Code: `claude plugin install superpowers@superpowers-marketplace`;
    Codex: через `/plugins` или из репозитория obra/superpowers) — после
    установки перезапуск сессии.
