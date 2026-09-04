@@ -13,6 +13,7 @@
 | Сабагенты | штатно | `[features] multi_agent = true` в `~/.codex/config.toml` → `spawn_agent` / `wait_agent` / `close_agent` | зависит от среды; нет сабагентов → методика неприменима |
 | Superpowers | плагин из superpowers-marketplace | `/plugins` или репозиторий obra/superpowers (в нём есть `references/codex-tools.md`) | по стандарту Agent Plugins 1.0 |
 | MCP (context7) | `~/.claude.json`, JSON | `~/.codex/config.toml`, секция `[mcp_servers.*]`, TOML | по документации среды |
+| Каталог компонентов и проверка живого интерфейса (по признаку) | MCP `shadcn` и `playwright` в `~/.claude.json` | те же серверы в `[mcp_servers.*]` `~/.codex/config.toml` | по документации среды; нет каталога — роль берёт эталоны вручную |
 | Формат плагина | Claude-плагин или Agent Plugins 1.0 | Agent Plugins 1.0 | Agent Plugins 1.0 |
 
 ## Правила письма, сохраняющие переносимость
