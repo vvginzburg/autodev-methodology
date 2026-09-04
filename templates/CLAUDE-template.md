@@ -35,7 +35,12 @@
 - Принятая задача = commit + push. Итерация начинается с прогона тестов.
 - Техника длинных команд и грабли окружения:
   ~/.claude/skills/autodev/reference/pitfalls.md — В КАЖДЫЙ бриф сабагенту.
-- Файлы процесса: только PLAN/DECISIONS/ESCALATIONS/REPORT + git.
+- Файлы процесса: только PLAN/DECISIONS/ESCALATIONS/REPORT + git
+  (плюс eval.md, если активирован Инженер оценки AI).
+- Управляющий конвейер GSD внутри проекта НЕ запускать: ни `/gsd:*`, ни
+  конвейерные скилы `gsd-new-project`/`gsd-plan-phase`/`gsd-execute-phase`/
+  `gsd-autonomous`. Два плана и два хранилища состояния в одном репозитории
+  недопустимы (фаза 1, шаг 5а).
 - Документ для человека (SPECIFICATION, PLAN, DECISIONS, ESCALATIONS, ARCHITECTURE,
   REPORT) не готов, пока не вычитан скилом
   elements-of-style:writing-clearly-and-concisely.
