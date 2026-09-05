@@ -22,6 +22,10 @@
    | `SPECIFICATION.md` без `PLAN.md` | проектирование не закончено | продолжить фазу 1 с шага, следующего за последней записью в DECISIONS |
    | `PLAN.md` есть | идёт разработка | пункт 2 ниже |
 
+   Есть `autodev/STATUS.md` — прочитать первым: в нём последнее записанное
+   состояние прошлой смены. Строка «работаю» в нём означает, что смена
+   оборвалась на ходу, а не закончилась.
+
 2. Прочитай autodev/SPECIFICATION.md целиком; autodev/PLAN.md, autodev/DECISIONS.md,
    autodev/ESCALATIONS.md, autodev/REPORT.md (какие есть); `git log --oneline -25`.
    Есть открытые записи в ESCALATIONS — задачи, которые их ждут, не берутся.
@@ -53,7 +57,7 @@
   ~/.claude/skills/autodev/reference/pitfalls.md — В КАЖДЫЙ бриф сабагенту.
   Типовые ошибки кода и таблица «симптом → куда смотреть»:
   ~/.claude/skills/autodev/reference/bug-patterns.md — туда же.
-- Файлы процесса: только PLAN/DECISIONS/ESCALATIONS/REPORT + git
+- Файлы процесса: PLAN/DECISIONS/ESCALATIONS/REPORT/STATUS + git
   (плюс eval.md, codebase.md, ui.md — если активированы соответствующие роли).
 - **Проектом управляет только autodev (принцип 15).** Не инициализировать
   и не запускать чужой конвейер, его lifecycle-команды, агентов, hooks, gates
@@ -78,5 +82,7 @@
 ## Готовность и завершение
 - Готово = ВСЕ критерии SPECIFICATION §10.1 подтверждены одним свежим прогоном
   (superpowers:verification-before-completion), не самооценкой.
-- Конец смены/контекста: коммит, autodev/REPORT.md с точкой продолжения, push.
+- Конец смены/контекста: коммитится только прошедшее проверку, незавершённая
+  задача откатывается; autodev/REPORT.md с точкой продолжения; в STATUS.md —
+  итоговое состояние, а не «работаю»; push.
   Следующая сессия продолжит по bootstrap.
