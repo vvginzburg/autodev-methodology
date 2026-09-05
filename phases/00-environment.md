@@ -43,7 +43,7 @@
 
    Внутри папки создаётся **`autodev/`** — там живут все документы методики
    по этому проекту: SPECIFICATION, PLAN, DECISIONS, ESCALATIONS, ARCHITECTURE,
-   REPORT, env-check.md, stack.md, pitfalls.md. Отдельная папка нужна, чтобы методика
+   REPORT, env-check.md, STATUS.md, stack.md, pitfalls.md. Отдельная папка нужна, чтобы методика
    не сталкивалась с файлами, которые проект завёл до неё: у исследования,
    которое вёл AI, вполне может лежать свой `SPECIFICATION.md` в корне.
 
