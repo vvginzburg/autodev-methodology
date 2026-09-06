@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "packages": [
+    {
+      "name": "superpowers",
+      "version": "6.3.0",
+      "url": "https://github.com/obra/superpowers.git",
+      "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+      "archive": "superpowers-b36e082.tar",
+      "sha256": "8d795dfb2141e467bdf448474fd9acfa97dffa4da5837f0f6cf0dc2c290640ba"
+    },
+    {
+      "name": "elements-of-style",
+      "version": "1.0.0",
+      "url": "https://github.com/obra/the-elements-of-style.git",
+      "commit": "05fc4f0d2b97b7c042dd9949ad658568e4a1324e",
+      "archive": "elements-05fc4f0.tar",
+      "sha256": "f807b4893bc6b6a5ce96a686f97049bb8eb1c9c6659dc146a8309ea4beaea351"
+    }
+  ],
+  "profiles": {
+    "core": {
+      "skills": [
+        "superpowers:brainstorming",
+        "superpowers:writing-plans",
+        "superpowers:subagent-driven-development",
+        "superpowers:test-driven-development",
+        "superpowers:verification-before-completion",
+        "superpowers:systematic-debugging",
+        "elements-of-style:writing-clearly-and-concisely"
+      ],
+      "mcp": []
+    },
+    "web-acceptance": {
+      "inherits": "core",
+      "mcp": {
+        "@upstash/context7-mcp": "4.0.5",
+        "shadcn": "4.21.0",
+        "@playwright/mcp": "0.0.80"
+      },
+      "publication": "local-only"
+    }
+  }
+}
